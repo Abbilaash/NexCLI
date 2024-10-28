@@ -5,12 +5,19 @@ from termcolor import colored
 import json
 
 load_dotenv()
+# Load environment variables
 GEMINI_API = os.getenv('GEMINI_API')
+GIT_AUTH = os.getenv('GIT_AUTH')
+
+# Initialize the Generative AI model
 genai.configure(api_key=GEMINI_API)
 model = genai.GenerativeModel(model_name='gemini-1.5-flash')
 
 def nexcli_response(query, system_info):
-    system_info_json = json.dumps(system_info)
+    system_info['git_auth_token'] = GIT_AUTH   # Add git authentication token to system info
+    system_info_json = json.dumps(system_info)   # Convert directory info to JSON
+
+    # Creating the prompt for the model
     chat = model.start_chat(
         history=[
             {"role": "user", "parts": f"""You are a Gemini model integrated into NexCLI. Interpret the user's natural language
@@ -34,9 +41,13 @@ def nexcli_response(query, system_info):
             - Check if directories or files exist before creating or deleting them
             - Use environment variables when appropriate
             - Consider the current working directory for relative paths
+            - If the command is related to github authentication and works, use the git_auth_token to authenticate github commands
 
             Provide alternative commands or checks when appropriate to handle potential errors or existing resources.
-            If a task requires multiple commands, provide them all, separated by commas."""},
+            If a task requires multiple commands, provide them all, separated by commas.
+            
+            
+            """},
             {"role": "model", "parts": "Understood. I will provide smart, context-aware commands with correct path handling, separated by commas."},
         ]
     )

@@ -1,8 +1,15 @@
-import app.func as nexcli
-import argparse
-import subprocess
 import os
-import shutil
+import sys
+
+# Determine the parent directory of the script
+script_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(script_dir)
+
+import app as nexcli
+import argparse
+import subprocess 
+from dotenv import set_key
+
 
 def get_system_info():
     return {
@@ -117,6 +124,8 @@ def main():
     parser = argparse.ArgumentParser(description='Smart CLI Command Interpreter')
     parser.add_argument('-c', '--command', type=str, help='Enter your natural language command')
     parser.add_argument('-y', '--yes', action='store_true', help='Skip confirmation and execute commands directly')
+    parser.add_argument('-gitauth', type=str, help='Add GitHub authentication token')
+
     args = parser.parse_args()
 
     if args.command:
@@ -135,6 +144,13 @@ def main():
             execute_command_sequence(commands)
         else:
             nexcli.print_yellow("Operation cancelled by user")
+
+
+    elif args.gitauth:
+        dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
+        set_key(dotenv_path, "GIT_AUTH", args.gitauth)
+        print("GitHub authentication token saved successfully.")
+
     else:
         print("No command provided. Use -c or --command to specify a command.")
 
