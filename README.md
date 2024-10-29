@@ -1,6 +1,6 @@
 # NexCLI
 
-**NexCLI** is an intelligent, natural language command-line interpreter that allows users to run advanced OS commands with ease. Using Google’s Gemini model for prompt engineering, NexCLI translates plain-language requests into precise Windows OS commands and executes them. This tool offers flexibility, automation, and ease of use, whether you’re managing files, directories, or remote repositories.
+**NexCLI** is an intelligent, natural language command-line interpreter that allows users to run advanced OS commands with ease. Using Google’s Gemini model for prompt engineering, NexCLI translates natural-language requests into precise Windows OS commands and executes them. This tool offers flexibility, automation, and ease of use, whether you’re managing files, directories, or remote repositories.
 
 ## Features
 - AI-based command generation from natural language inputs
