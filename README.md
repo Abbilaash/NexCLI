@@ -38,6 +38,7 @@ python <path_to_NexCLI/main.py> -c "<your_command>"
 
 
 ## Screenshots
+![image](https://github.com/user-attachments/assets/b55e919c-2ea7-49ca-bf1e-2976e033fb9c)
 
 
 
