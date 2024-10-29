@@ -2,13 +2,13 @@
 
 **NexCLI** is an intelligent, natural language command-line interpreter that allows users to run advanced OS commands with ease. Using Google’s Gemini model for prompt engineering, NexCLI translates plain-language requests into precise Windows OS commands and executes them. This tool offers flexibility, automation, and ease of use, whether you’re managing files, directories, or remote repositories.
 
-# Features
+## Features
 - AI-based command generation from natural language inputs
 - Context-aware command adaptation based on system information
 - GitHub repository initialization and configuration using stored auth tokens
 - Customizable command explanations and system information integration
 
-# Installation
+## Installation
 1. Clone the repository
    ```
    git clone https://github.com/Abbilaash/NexCLI.git
@@ -25,11 +25,19 @@
      GEMINI_API=your_gemini_api_here
      ```
 
-# Usage
+## Usage
+Run NexCLI using the command
+```
+python <path_to_NexCLI/main.py> -c "<your_command>"
+```
 
-# Help Command
+## Help Command
+```-c``` or ```--command``` To execute the specified command
+```-y``` or ```--yes``` Skips confirmation before command execution
+```-gitauth``` Adds GitHub auth token to ```.env``` file
 
-# Screenshots
+
+## Screenshots
 
 
 
