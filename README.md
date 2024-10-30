@@ -30,6 +30,10 @@ Run NexCLI using the command
 ```
 python <path_to_NexCLI/main.py> -c "<your_command>"
 ```
+You can even add your GitHub authentication key
+```
+python <path_to_NexCLI/main.py> -gitauth "<your_git_auth_code_here>"
+```
 
 ## Help Command
 ```-c``` or ```--command``` To execute the specified command
